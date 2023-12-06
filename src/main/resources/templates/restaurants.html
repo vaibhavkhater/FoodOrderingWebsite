@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="en" th:replace="base::layout(~{::section},'Restaurants')">
+
+<head>
+    <meta charset="UTF-8">
+    <title>All Restaurants</title>
+</head>
+
+<body class="menu-layer">
+
+    <!-- hero-section -->
+    <section class="hero-section about">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200" data-aos-duration="300">
+                    <div class="about-text">
+                        <ul class="crumbs d-flex">
+                            <li><a href="index.html">Home</a></li>
+                            <li class="two"><a href="index.html"><i class="fa-solid fa-right-long"></i>Restaurants</a>
+                            </li>
+                        </ul>
+                        <h2>Restaurants</h2>
+                    </div>
+                </div>
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300" data-aos-duration="400">
+                    <div class="restaurants-girl-img food-photo-section">
+                        <img th:src="@{/pics/photo-11.png}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- best-restaurants -->
+    <section class="best-restaurants">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 my-3" data-aos="flip-up" data-aos-delay="200" data-aos-duration="300"
+                    th:each="restaurant: ${restaurants}">
+                    <div class="logos-card restaurant-page ">
+                        <img alt="logo" th:src="@{/pics/logos-2.jpg}">
+                        <div class="cafa col-lg-8">
+                            <h4><a th:href="@{'/restaurants/' + ${restaurant.RestaurantId}}"
+                                    th:utext="${restaurant.RestaurantName}"></a></h4>
+                            <div class="d-flex justify-content-between">
+                                <p>Rating: <span
+                                        th:utext="${restaurant.Rating} + ' (' + ${restaurant.NumberOfUsersRated} + ')' "></span>
+                                </p>
+                                <p th:if="${restaurant.vegeterian} == true"> <span style="color: green;"
+                                        th:utext="Veg" /></p>
+                                <p th:if="${restaurant.vegeterian} == false"> <span style="color: saddlebrown;"
+                                        th:utext="Non-Veg" /></p>
+                                <span
+                                    th:if="${#temporals.format(#temporals.createNow(),'HH:mm:ss')} &gt; ${restaurant.StartTime.toString()}">
+                                    <p th:if="${#temporals.format(#temporals.createNow(),'HH:mm:ss')} &lt; ${restaurant.EndTime.toString()}"
+                                        style="color: green;">Open Now</p>
+                                    <p th:if="${#temporals.format(#temporals.createNow(),'HH:mm:ss')} &gt; ${restaurant.EndTime.toString()}"
+                                        style="color: red;">Closed</p>
+                                </span>
+                            </div>
+                            <div class="cafa-button">
+                                <p
+                                th:utext="${restaurant.StreetAddress} + ', ' + ${restaurant.city} + ', ' + ${restaurant.state}" />
+                                <div class="cafa-button">
+                                <p th:utext="'Phone No. : ' + ${restaurant.phoneNumber}"></p>
+                            </div>
+                            <div class="cafa-button">
+                                <a th:href="@{'/restaurants/' + ${restaurant.RestaurantId}}">View More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- subscribe-section -->
+    <section class="subscribe-section gap" style="background:#fcfcfc">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="flip-up" data-aos-delay="200" data-aos-duration="300">
+                    <div class="img-subscribe">
+                        <img alt="Illustration" th:src="@{/pics/illustration-4.png}">
+                    </div>
+                </div>
+                <div class="col-lg-5 offset-lg-1" data-aos="flip-up" data-aos-delay="300" data-aos-duration="400">
+                    <div class="get-the-menu">
+                        <h2>Get the menu of your favorite restaurants every day</h2>
+                        <form>
+                            <i class="fa-regular fa-bell"></i>
+                            <input type="text" name="email" placeholder="Enter email address">
+                            <button class="button button-2">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>

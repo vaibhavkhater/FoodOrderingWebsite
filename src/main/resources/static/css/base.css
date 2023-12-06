@@ -1,0 +1,112 @@
+header{
+    box-shadow: 2px 2px 30px rgb(214, 214, 214);
+}
+.header-img{
+    max-height: 350px;
+    width: 100%;
+}
+.content-class{
+    padding-top: 7%;
+}
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    box-shadow: 2px 2px 30px rgb(214, 214, 214);
+}
+.search-bar{
+    min-width: 45%;
+}
+.animbtn{
+    border:0px;
+}
+.animbtnlink{
+    font-family: "Mukta";
+    border-radius: 6px;
+    opacity: 1;
+    outline: 0;
+    color: #fff;
+    line-height: 40px;
+    position: relative;
+    text-align: center;
+    letter-spacing: 1px;
+    display: inline-block;
+    text-decoration: none;
+    font-family: "Inter";
+    font-weight: 700;
+}
+.animbtnlink:hover:after {
+    font-family: "Mukta";
+    border-radius: 6px;
+    opacity: 1;
+    transform: translateY(0) rotateX(0);
+}
+.animbtnlink:hover:before {
+    font-family: "Mukta";
+    border-radius: 6px;
+    opacity: 0;
+    transform: translateY(50%) rotateX(90deg);
+}
+.animbtnlink:after {
+    font-family: "Mukta";
+    border-radius: 6px;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    color: #323237;
+    display: block;
+    transition: 0.5s;
+    position: absolute;
+    background: #adadaf;
+    content: attr(data-back);
+    transform: translateY(-50%) rotateX(90deg);
+}
+.animbtnlink:before {
+    font-family: "Mukta";
+    border-radius: 6px;
+    top: 0;
+    left: 0;
+    opacity: 1;
+    color: #adadaf;
+    display: block;
+    padding: 0 30px;
+    line-height: 40px;
+    transition: 0.5s;
+    position: relative;
+    background: #323237;
+    content: attr(data-front);
+    transform: translateY(0) rotateX(0);
+}
+
+.footer_container{
+    /*margin-top: 1000px;*/
+    display: flex;
+    justify-content: space-around;
+    color: black;
+    background: rgb(245, 245, 245);
+    font-size: 110%;
+    font-family: 'Hind Madurai';
+}
+.footer_container a{
+    text-decoration: none;
+    color: black;
+}
+.footer_container a:hover{
+    text-decoration: underline black;
+}
+ul{
+    list-style: none;
+}
+.connect{
+    max-width: 35%;
+}
+.title{
+    font-size: 150%;
+    font-weight: bold;
+    font-family: 'Mukta';
+}
+.icons{
+    display: flex;
+}
+

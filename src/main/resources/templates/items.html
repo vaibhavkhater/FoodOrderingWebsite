@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="en" th:replace="base::layout(~{::section},'Items')">
+
+<head>
+    <meta charset="UTF-8">
+    <title>helo</title>
+</head>
+
+<body class="menu-layer">
+    <div class="container">
+        <h1>Restaurant Items</h1>
+        <table>
+            <tr>
+                <th>Item Name</th>
+                <th>Price</th>
+                <th>Description</th>
+                <th>Rating</th>
+                <th>Type</th>
+                <th>Availability</th>
+            </tr>
+            <tr th:each="item: ${items}">
+                <td th:utext="${item.itemName}"></td>
+                <td th:utext="${item.price}"></td>
+                <td th:utext="${item.itemDescription}"></td>
+                <td th:utext="${item.rating}"></td>
+                <td th:utext="(${item.isVegeterian} == true) ? 'Veg' : 'Non-Veg'"></td>
+                <td th:text="(${item.isAvailable} == true) ? 'In Stock' : 'Out of Stock'"></td>
+                <td>
+                    <form action="submit">
+                        <p>Quantity: </p>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>

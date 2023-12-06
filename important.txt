@@ -1,0 +1,17 @@
+1. Change the datasource db in application.properties file according to your db.
+
+Conventions:
+1. Using camelCase for variable names and PascalCase for class names.
+
+Possible improvements:
+1. Now for users of database to have unique ids, I am not gonna set Id during initialization. But when it is sent to db, I am then gonna set it.
+
+
+Requires urgent changes:
+1. Add DateTime for order placed and order delivered.
+2. Move addressId from order to cart
+3. Adding transaction datetime for transaction table.
+
+## Admin
+1. Username = admin@food.com
+2. Password = dbms@123
